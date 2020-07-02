@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验七</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/step.css">
+    <link rel="stylesheet" href="./element_ui/element.css">
+    <style>
+         .band {
+            width: 90%;
+            min-width: 700px;
+            height: 460px;
+            margin: 20px 66px 0px;
+            /* background-color: blue; */
+        }
+        .center {
+            width:85%;
+            min-width: 850px;
+            margin: 20px auto 20px;
+            /* background-color: antiquewhite; */
+        }
+        .main {
+            padding-top: 50px;
+            background-color: #fff;
+            height: 505px;
+        }
+        .line{
+            width: 100%;
+            min-width: 650px;
+            /* background-color: aqua; */
+            border-bottom: 1px solid #eee;
+        }
+        .el-checkbox__label {
+            display: inline-block;
+            padding-left: 10px;
+            line-height: 19px;
+            font-size: 24px;
+        }
+        .el-checkbox__inner { 
+            width: 22px;
+            height: 22px;       
+        }
+        .el-checkbox__inner::after {       
+            height: 12px;           
+            width: 10px;          
+        }
+        .zhushi{
+            width: 90%;
+            margin: 0 auto;
+            /* margin-left: 30px; */
+        }
+        .zhushi div{
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .zhushi1{
+            font-weight: bold;
+            font-size: 20px!important;
+        }
+        .gobutton{
+            display: flex;
+            justify-content: center;
+            margin: 10px auto;
+        }
+        .gobutton a{
+            margin: 10px;
+        }
+        .step4 {
+            display: flex;
+            /* border-top: 1px solid #e1e1e1; */
+            width: 95%;
+            min-width: 700px;
+            height: 100%;
+            margin: 1% auto;
+        }
+        .step5{
+            display: flex;
+            /* background-color: #fff; */
+            /* border-top: 1px solid #e1e1e1; */
+            width: 88.4%;
+            min-width:1530px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .step4 .dl {
+            width: 328px;
+            min-width: 230px;
+            overflow: hidden;
+            /* margin-left: 7%; */
+            background-color: #fff;
+        }
+
+        .step4 .dr {
+            width: 100%;
+            min-width: 895px;
+            margin-left: 20px;
+            display: block;
+        }
+
+        .list {
+            background-color: #fff;
+            width: 215px;
+            padding: 20px 0 0 18px;
+        }
+
+        .list>li {
+            width: 188px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 18px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #4f5d74;
+            cursor: pointer;
+            padding-left: 18px;
+        }
+
+        .list>li>i {
+            display: inline-block;
+            width: 21px;
+            height: 21px;
+            margin-right: 23px;
+            background: url(./img/sprite.png) no-repeat;
+            vertical-align: middle;
+        }
+
+        .list>li:nth-child(1)>i {
+            background-position: 0 0;
+        }
+
+        .list>li:nth-child(2)>i {
+            background-position: 0 -30px;
+        }
+
+        .list>li:nth-child(3)>i {
+            background-position: 0 -58px;
+        }
+
+        .list>li:hover,
+        .list .active {
+            background-color: #f1f2f4;
+            box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+            border-radius: 5px;
+            color: #005bac;
+        }
+
+        .list>li:hover>i,
+        .list .active>i {
+            background-position-x: -31px;
+        }
+
+        .btns {
+            top: -8px;
+        }
+
+        .expand {
+            width: 179px;
+            padding-top: 22px;
+        }
+
+        .expand li {
+            margin-bottom: 15px;
+            width: 165px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #4f5d74;
+            cursor: pointer;
+        }
+
+        .expand .active,
+        .expand>li:hover {
+            background-color: #e7eaf3;
+            color: #005bac;
+        }
+        #p1,#p2,#p3{
+            display: none;
+        }
+        #p1:target,#p2:target,#p3:target{
+            display: block;
+        }
+        .dr{
+          height: 700px;
+        }
+        .dr div:first-child{
+          width: 100%;
+          height: 350px;
+          border: 1px solid rgb(105, 102, 102);
+        }
+        .dr div:last-child{
+          width: 100%;
+          height: 250px;
+          border: 1px solid rgb(105, 102, 102);
+          border-top: 0px;
+        }
+        .step4 table{
+          width: 90%;
+          min-width:600px;
+          height: 170px;
+          margin: 0 auto ;
+          border-radius: 10px;
+        }
+        .step4 table th:first-child{
+          width: 30px;
+          height: 131px;
+          font-weight: 500;
+          border-right: 0px;
+          background-color: #f1f2f4;
+        }
+        .step4 table tr:last-child{
+          border-bottom: 1px dashed rgb(146, 141, 141);
+        }
+        .step4 table th:last-child{
+          vertical-align: text-top;
+          text-align: justify;
+          line-height: 30px;
+          width: 370px;
+          font-weight: 500;
+          border-left: 0px;
+          background-color: #fff;
+        }
+        .jac{
+          width: 90%;
+          height: 40px;
+          border:1px solid #596170;
+          margin: 20px auto 0;
+          border-bottom: 0px;
+          display: flex;
+          justify-content: space-around;
+        }
+        .jac p{
+          width:93%;
+          margin: 10px 0px 10px 10px;
+        }
+        .jac button{
+          color: #fff;
+          margin: 5px 10px;
+          text-align:center;
+          line-height: 0px;
+          letter-spacing: 6px;
+        }
+        .jq{
+          width: 90%;
+          height: 40px;
+          border:1px solid #596170;
+          margin: 0px auto 20px;
+          border-top: 0px;
+          display: flex;
+          justify-content: space-between;
+        }
+        .jq p{
+          text-align: left;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+       
+    </style>
+    <script type="text/javascript" charset="gbk" src="./utf/utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="gbk" src="./utf/utf8-php/ueditor.all.js"></script>
+</head>
+
+<body>
+    <div id="app">            
+        <div class="top">
+          <div class="logo">
+            <!-- <img src="./2/logo_03.png" width="100%" alt=""> -->
+          </div>
+          <div class="top_r">
+            <ul class="nav">
+              <li>首页</li>
+              <li>开始试验</li>
+              <li>我的试验</li>
+            </ul>
+            <div class="btn_log">登录/注册</div>
+          </div>
+        </div>
+        <div class="banner">
+          <!-- <img src="./2/banner.png" width="100%" alt=""> -->
+        </div>
+        <div class="center main_title">
+          <div class="bar"></div>
+          <span class="title">选择买入方式</span>
+        </div>
+        <div class="center main">
+          <div>
+            <div class="line_step0">
+              <div>
+                <!-- <img src="./2/1.png" alt="" style="width: 100px;"> -->
+              </div>
+              <p style="font-weight: bold;">等额买入</p>
+              <p style="font-size:16px;">通过预设公式并输入参数值来实现公式推导</p>
+            </div>
+            <!-- <div > -->
+              <template>
+                    <el-radio v-model="radio" label="1">备选项</el-radio>
+                    <el-radio v-model="radio" label="2">备选项</el-radio>
+                    <el-button type="primary">主要按钮</el-button>
+                  <!-- <el-radio label="开盘价成交"></el-radio>
+                  <el-radio label="收盘价成交"></el-radio>
+                  <el-radio label="最低价成交"></el-radio>
+                  <el-radio label="最高价成交"></el-radio> -->
+                </template>
+            <!-- </div> -->
+          </div>
+          <div class="gobutton">
+            <a href="http://lab.groupontrading.com/finance_vr/s_tep6.html">
+              <div class="btn_step_go">上一步</div>
+            </a>
+            <a>
+              <div class="btn_step_go">下一步</div>
+            </a>
+          </div>
+        </div>
+
+    </div>
+</body>
+<script src="./element_ui/vue.js"></script>
+<script src="./element_ui/element.js"></script>
+<script src="./js/step15.js"></script>
+
+</html>

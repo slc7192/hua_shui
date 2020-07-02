@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>步骤三</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/step.css">
+    <link rel="stylesheet" href="./element_ui/element.css">
+
+    <style>
+        .band {
+            width: 90%;
+            min-width: 700px;
+            height: 460px;
+            margin: 20px 66px 0px;
+            /* background-color: blue; */
+        }
+        .center {
+            width:85%;
+            min-width: 850px;
+            margin: 20px auto 20px;
+            /* background-color: antiquewhite; */
+        }
+        .main {
+            padding-top: 50px;
+            background-color: #fff;
+            height: 505px;
+        }
+        .line{
+            width: 100%;
+            min-width: 650px;
+            /* background-color: aqua; */
+            border-bottom: 1px solid #eee;
+        }
+        .el-checkbox__label {
+            display: inline-block;
+            padding-left: 10px;
+            line-height: 19px;
+            font-size: 24px;
+        }
+        .el-checkbox__inner { 
+            width: 22px;
+            height: 22px;       
+        }
+        .el-checkbox__inner::after {       
+            height: 12px;           
+            width: 10px;          
+        }
+        .zhushi{
+            width: 90%;
+            margin: 0 auto;
+            /* margin-left: 30px; */
+        }
+        .zhushi div{
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .zhushi1{
+            font-weight: bold;
+            font-size: 20px!important;
+        }
+        .gobutton{
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+        .gobutton a{
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="top">
+            <div class="logo">
+                <img src="./img/logo_03.png" width="100%" alt="">
+            </div>
+            <div class="top_r">
+            <ul class="nav">
+                <li>首页</li>
+                <li>开始试验</li>
+                <li>我的试验</li>
+                
+            </ul>
+            <div class="btn_log">登录/注册</div>
+            </div>
+        </div>
+        <div class="banner">
+            <img src="./img/banner.png" width="100%" alt="">
+        </div>
+        <div class="center main_title">
+            <div class="bar"></div>
+            <span class="title">选择行情指标因子</span>
+        </div>
+        <div class="center main">
+          <div class="band">
+            <div class="line" >
+              <el-table
+              :data="tableData"
+              stripe
+              style="width: 100%;margin-top:11%">
+              <el-table-column
+                prop="date"
+                label="指标名称"
+                >
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="选项"
+                >
+                <template slot-scope="scope">
+                  <el-select v-model="scope.row.name" placeholder="请选择">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="address"
+                label="值">
+                <template slot-scope="scope">
+                  <el-input v-model="scope.row.address" placeholder="请输入内容"></el-input>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="tian"
+                label="单位">
+              </el-table-column>
+            </el-table>
+           
+              
+        </div>
+        <div >
+          <div class="gobutton" style="margin-top: 242px;">
+            <a href="./s_tep4.html"><div class="btn_step_go">上一步</div></a>
+            <a href="./s_tep6.html"><div class="btn_step_go">下一步</div></a>
+          </div> 
+        </div>
+        </div>
+    </div>
+</body>
+    <script src="./element_ui/vue.js"></script>
+    <script src="./element_ui/element.js"></script>
+    <script src="./js/step7.js"></script>
+</html>
